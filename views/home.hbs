@@ -1,0 +1,53 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<h1>Welcome to This Homepage</h1>
+<h2>Give a search of our synthesizer database.</h2>
+<form method="post" action="/search">
+  Search The Database
+  <input type="search" name="search_term" required="required">
+  <button>Search</button> |||   <button>New Synth</button>
+</form>
+
+<br>
+<br>
+<hr>
+<table>
+    <tr>
+        <th>Brand</th>||
+        <th>Model Name</th>||
+        <th>Price</th>
+    </tr>    
+    
+{{#each synths}}
+    <tr onclick="javascript:editSynth(this);">
+        <td>{{brand}}</td>
+        <td>{{model}}</td>
+        <td>{{price}}</td>
+    </tr>
+{{/each}}
+</table>
+
+
+
+<script>
+    $(document).ready(function(){
+        var buttons = $('button');
+        
+        buttons.on('click', function() {
+            var $this = $(this);
+            var action = $this.text().toLowerCase();
+            if (action == 'new synth') {
+                $("form").attr("action", "#");
+                location.href = "/detail?brand=";
+            } else {
+                $("form").attr("action", action);
+            }
+        });
+    });
+    
+    function editSynth(row) {
+        var brand = $(row).children().first().text();
+        location.href = "/detail?brand=" + brand;
+    }
+    
+</script>
+</body>

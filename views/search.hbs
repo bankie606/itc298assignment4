@@ -1,0 +1,13 @@
+<script> var header = 'Searching for: ' + req.body.search_term.toLowerCase()+ '<br>';
+    var found = synth.get( req.body.search_term.toLowerCase());
+    
+    
+    var synthmodel = found.model + ' ';
+    
+    if (found) {
+        res.send(header + synthmodel + "Price: " + found.price);
+    } else {
+        res.send(header + "No such synth exists in our inventory.");
+    }
+    
+</script>
