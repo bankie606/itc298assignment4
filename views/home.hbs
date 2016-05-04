@@ -4,7 +4,9 @@
 <form method="post" action="/search">
   Search The Database
   <input type="search" name="search_term" required="required">
-  <button>Search</button> |||   <button>New Synth</button>
+  <br>
+  <br>
+  <button>Search</button> |||   <button>Add Synth</button>
 </form>
 
 <br>
@@ -12,16 +14,16 @@
 <hr>
 <table>
     <tr>
-        <th>Brand</th>||
-        <th>Model Name</th>||
+        <th>Brand </th>
+        <th>Model Name </th>
         <th>Price</th>
     </tr>    
     
 {{#each synths}}
     <tr onclick="javascript:editSynth(this);">
-        <td>{{brand}}</td>
-        <td>{{model}}</td>
-        <td>{{price}}</td>
+        <td> {{brand}} </td>
+        <td> {{model}} </td>
+        <td> {{price}} </td>
     </tr>
 {{/each}}
 </table>
@@ -35,7 +37,7 @@
         buttons.on('click', function() {
             var $this = $(this);
             var action = $this.text().toLowerCase();
-            if (action == 'new synth') {
+            if (action == 'add synth') {
                 $("form").attr("action", "#");
                 location.href = "/detail?brand=";
             } else {
