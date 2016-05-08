@@ -23,7 +23,7 @@ app.get('/', function(req,res){
 
 app.get('/detail', function(req,res){
     res.type('text/html');
-    res.render('detail', {synth: synth.getSynth(req.query.brand)} );    
+    res.render('detail', {synth: synth.getSynth()} );    
 });
 
 app.get('/about', function(req,res){
