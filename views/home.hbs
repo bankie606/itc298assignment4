@@ -6,7 +6,7 @@
   <input type="search" name="search_term" required="required">
   <br>
   <br>
-  <button>Search</button> |||   <button>Add Synth</button>
+  <button>Search</button> |||  <button>Add Synth</button>
 </form>
 
 <br>
@@ -19,7 +19,7 @@
         <th>Price</th>
     </tr>    
     
-{{#each synths}}
+{{#each getAll}}
     <tr onclick="javascript:editSynth(this);">
         <td> {{brand}} </td>
         <td> {{model}} </td>

@@ -2,7 +2,6 @@ var express = require("express");
 var app = express();
 var synth = require('./lib/synths.js');
 
-
 var back_link = "<p><a href='/'>Back</a>";
 
 
@@ -17,10 +16,9 @@ app.engine('hbs', handlebars.engine);
 app.set('view engine', 'hbs' );
 
 
-
 app.get('/', function(req,res){
     res.type('text/html');
-    res.render('home', { layout: 'main'  });    
+    res.render('home', {synth: synth.getAll()});    
 });
 
 app.get('/detail', function(req,res){
