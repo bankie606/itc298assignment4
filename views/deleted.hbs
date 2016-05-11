@@ -1,0 +1,24 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <h2>{{synth.brand}}</h2>
+    <h1>DELETED</h1>
+
+<h3>Items in the list</h3>
+<p>{{result}}</p>
+
+<script>
+
+
+
+    $(document).ready(function(){
+        var buttons = $('button');
+        buttons.on('click', function() {
+            var $this = $(this);
+            var action = $this.text().toLowerCase();
+            if (action == 'update') { action = 'add'; }
+            console.log(action);
+            $("form").attr("action", "/" + action);
+        });
+    });
+</script>
+

@@ -45,6 +45,12 @@ button {
     font-size: 16px;
 }
 
+header{
+    font-size:32px;
+    text-shadow: 1px 1px 1px white, 2px 2px 2px black, 3px 3px 3px white, 4px 4px 4px black;
+float:none;
+margin: auto;
+}
 
 h1 {
 text-shadow: 1px 1px 1px white, 2px 2px 2px black, 3px 3px 3px white, 4px 4px 4px black;
@@ -61,6 +67,9 @@ li{
 text-shadow: 1px 1px 1px #000069, 2px 2px 2px #ffffff, 2px 2px 3px #000000, 3px 3px 4px #808;
 }
 
+table{
+    font-size: 28px;
+}
 
 .footer{
     width:100%;

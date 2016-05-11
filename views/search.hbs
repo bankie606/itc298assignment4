@@ -1,13 +1,35 @@
-<script> var header = 'Searching for: ' + req.body.search_term.toLowerCase()+ '<br>';
-    var found = synth.get( req.body.search_term.toLowerCase());
-    
-    
-    var synthmodel = found.model + ' ';
-    
-    if (found) {
-        res.send(header + synthmodel + "Price: " + found.price);
-    } else {
-        res.send(header + "No such synth exists in our inventory.");
-    }
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+{{#if result}}
+     <h2>{{result.action}} - {{synth.brand}}</h2>
+{{else}}
+    <h2>Edit - {{synth.brand}}</h2>
+{{/if}}
+
+
+{{#if synth.brand}}
+
+<form method="POST" action="/add">
+    <input type="text" name="brand" placeholder="brand" value="{{synth.brand}}" required>
+    <input type="text" name="model" placeholder="model" value="{{synth.model}}" >
+    <input type="text" name="price" placeholder="price"  value="{{synth.price}}">
+
+
+    <button>{{#if synth.id}}Update{{else}}Add{{/if}}</button>
+    <button>Delete</button>
+</form>
+{{/if}}
+<script>
+
+
+    $(document).ready(function(){
+        var buttons = $('button');
+        buttons.on('click', function() {
+            var $this = $(this);
+            var action = $this.text().toLowerCase();
+            if (action == 'update') { action = 'add'; }
+            console.log(action);
+            $("form").attr("action", "/" + action);
+        });
+    });
 </script>
+

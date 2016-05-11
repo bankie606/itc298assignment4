@@ -5,9 +5,8 @@
     <h2>Edit - {{synth.brand}}</h2>
 {{/if}}
 
-
-
-{{#if synth.brand}}
+<h2>Sorry, your synth isn't in our inventory.</h2>
+<h1>However</h1> <h2>you can add it.</h2>
 
 <form method="POST" action="/add">
     <input type="text" name="brand" placeholder="brand" value="{{synth.brand}}" required>
@@ -16,21 +15,11 @@
 
 
     <button>{{#if synth.id}}Update{{else}}Add{{/if}}</button>
-    <button>Delete</button>
-</form>
-{{else}}
-<form method="POST" action="/add">
-    <input type="text" name="brand" placeholder="brand" value="" required>
-    <input type="text" name="model" placeholder="model" value="" >
-    <input type="text" name="price" placeholder="price"  value="">
-
-
-    <button>Add</button>
-    <button>Delete</button>
 </form>
 
-{{/if}}
 <script>
+
+
     $(document).ready(function(){
         var buttons = $('button');
         buttons.on('click', function() {

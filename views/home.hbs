@@ -21,16 +21,20 @@
     
 {{#each synth}}
     <tr onclick="javascript:editSynth(this);">
-        <td> {{brand}} </td>
-        <td> {{model}} </td>
-        <td> {{price}} </td>
+        <td>{{brand}} </td>
+        <td>{{model}} </td>
+        <td>{{price}} </td>
     </tr>
 {{/each}}
+
 </table>
-
-
+<p onload='arrayCounter()' id='arraycount'></p>
 
 <script>
+function arrayCounter() {
+    document.getElementById("arraycount").innerHTML = synth.getAll;
+}
+
     $(document).ready(function(){
         var buttons = $('button');
         
@@ -39,7 +43,7 @@
             var action = $this.text().toLowerCase();
             if (action == 'add synth') {
                 $("form").attr("action", "#");
-                location.href = "/detail?brand=";
+                location.href = "/detail/";
             } else {
                 $("form").attr("action", action);
             }
@@ -48,7 +52,7 @@
     
     function editSynth(row) {
         var brand = $(row).children().first().text();
-        location.href = "/detail?brand=" + brand;
+        location.href = "/detail/" + brand;
     }
     
 </script>

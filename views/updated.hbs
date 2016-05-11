@@ -2,13 +2,9 @@
 {{#if result}}
      <h2>{{result.action}} - {{synth.brand}}</h2>
 {{else}}
-    <h2>Edit - {{synth.brand}}</h2>
+    <h2>{{synth.brand}}</h2>
 {{/if}}
-
-
-
-{{#if synth.brand}}
-
+<h1>UPDATED</h1>
 <form method="POST" action="/add">
     <input type="text" name="brand" placeholder="brand" value="{{synth.brand}}" required>
     <input type="text" name="model" placeholder="model" value="{{synth.model}}" >
@@ -16,21 +12,14 @@
 
 
     <button>{{#if synth.id}}Update{{else}}Add{{/if}}</button>
-    <button>Delete</button>
 </form>
-{{else}}
-<form method="POST" action="/add">
-    <input type="text" name="brand" placeholder="brand" value="" required>
-    <input type="text" name="model" placeholder="model" value="" >
-    <input type="text" name="price" placeholder="price"  value="">
+<br>
+<h3>Items in the list</h3>
+<p>{{result}}</p>
 
-
-    <button>Add</button>
-    <button>Delete</button>
-</form>
-
-{{/if}}
 <script>
+
+
     $(document).ready(function(){
         var buttons = $('button');
         buttons.on('click', function() {
